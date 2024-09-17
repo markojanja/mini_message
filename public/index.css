@@ -1,0 +1,265 @@
+:root {
+  --w-xl: 33%;
+  --w-m: 70%;
+  --w-s: 90%;
+}
+
+*,
+hmtl,
+body {
+  color: #fff;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background: #030712;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  word-wrap: break-word;
+}
+
+input,
+textarea {
+  padding: 8px;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  border: 1px solid rgba(6, 182, 212, 1);
+  border-radius: 0.5rem;
+  outline: none;
+  padding: 0.5rem 0.25rem;
+  font-size: 1.25rem;
+  background: #030712;
+  color: white;
+}
+
+textarea:focus,
+input:focus {
+  border: 2px solid rgba(6, 182, 212, 1);
+}
+
+.nav {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 450px) {
+    flex-direction: column;
+  }
+}
+
+.logo,
+.nav-items {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.logo h2 {
+  font-size: clamp(1rem, 1.1vw, 2.5rem);
+  background: linear-gradient(
+    to right,
+    rgb(253, 224, 71),
+    rgba(6, 182, 212, 1),
+    rgba(94, 234, 212, 1),
+    rgb(6, 182, 212),
+    rgba(253, 224, 71, 1)
+  );
+  text-transform: uppercase;
+  background-clip: text;
+  --webkit-background-clip: text;
+  --webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 200%;
+}
+.nav-items {
+  font-weight: bold;
+}
+
+.nav a {
+  padding: 0.5rem;
+  transition: color 0.3s ease-in;
+  @media (max-width: 450px) {
+    font-size: 0.7rem;
+  }
+}
+.nav a:hover {
+  color: rgba(6, 182, 212, 1);
+}
+
+/* .nav :has(a:hover) a:not(:hover) {
+  opacity: 0.7;
+}
+.nav :has(a:hover) a:is(:hover) {
+  opacity: 1;
+} */
+
+section {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 1rem;
+  padding: 1rem;
+}
+.card_list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  width: var(--w-xl);
+  margin: 0 auto;
+  @media (max-width: 770px) {
+    width: var(--w-m);
+  }
+  @media (max-width: 420px) {
+    width: var(--w-s);
+  }
+}
+.message_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #111827;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.message_card::before,
+.message_card::after {
+  content: "";
+  position: absolute;
+  inset: -0.2rem;
+  background: rgb(253, 224, 71);
+  background: linear-gradient(
+    90deg,
+    rgba(253, 224, 71, 1) 0%,
+    rgba(94, 234, 212, 1) 46%,
+    rgba(6, 182, 212, 1) 100%
+  );
+  z-index: -1;
+  border-radius: inherit;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+}
+li {
+  list-style: none;
+  text-align: left;
+}
+
+a {
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+h1 {
+  text-transform: capitalize;
+  font-size: clamp(1.5rem, 2.4vw, 4.5rem);
+  color: rgba(6, 182, 212, 1);
+  background-size: 200%;
+  animation: animate-gradient 3s infinite;
+  font-weight: bold;
+}
+
+.main_title {
+  background: linear-gradient(
+    to right,
+    rgba(253, 224, 71, 1),
+    rgba(6, 182, 212, 1),
+    rgba(94, 234, 212, 1),
+    rgba(6, 182, 212, 1),
+    rgba(253, 224, 71, 1)
+  );
+  text-transform: capitalize;
+  font-size: clamp(1.5rem, 2.4vw, 4.5rem);
+  background-clip: text;
+  --webkit-background-clip: text;
+  --webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 200%;
+  animation: animate-gradient 3s infinite;
+  font-weight: 900;
+}
+
+@keyframes animate-gradient {
+  to {
+    background-position: 200%;
+  }
+}
+
+p {
+  font-size: clamp(1rem, 1.3vw, 2rem);
+}
+
+span {
+  font-size: clamp(1rem, 1.1vw, 1.5rem);
+  color: #9ca3af;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: var(--w-xl);
+  margin: 0 auto;
+  @media (max-width: 770px) {
+    width: var(--w-m);
+  }
+
+  @media (max-width: 420px) {
+    width: var(--w-s);
+  }
+}
+
+form button {
+  background-color: rgba(6, 182, 212, 1);
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+.error-msg {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 0.25rem;
+}
+.error-summary {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.active {
+  color: rgb(6, 182, 212);
+}

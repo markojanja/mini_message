@@ -1,0 +1,11 @@
+<div class="message_card">
+  <p><%- message.text %></p>
+  <div>
+    <% if (user) { %>
+    <span> <%- message.username %> </span>
+    <% } %>
+
+    <span><%- message.added.toLocaleString("en-GB") %> </span>
+  </div>
+  <a href="/messages/<%= message.id %>">open</a>
+</div>
