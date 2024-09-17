@@ -17,14 +17,12 @@
         <%- include("partials/nav") %>
         <section>
           <h1>Sign Up</h1>
+
           <form action="/auth/sign-up" method="POST">
             <label for="username">Username</label>
-            <input
-              id="username"
-              name="username"
-              placeholder="username"
-              type="text"
-            />
+            <input id="username" name="username" placeholder="username"
+            type="text" value="<%= typeof username!=='undefined'? username :""
+            %> " />
             <label for="password">Password</label>
             <input
               id="password"
@@ -33,6 +31,13 @@
               placeholder="password"
             />
             <button>Sign Up</button>
+            <% if (locals.errors) {%>
+            <ul class="error-summary">
+              <% errors.forEach(function(error) { %>
+              <li class="error-msg"><%= error.msg %></li>
+              <% }); %>
+            </ul>
+            <% } %>
           </form>
         </section>
       </body>

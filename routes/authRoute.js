@@ -1,16 +1,17 @@
 const { Router } = require("express");
 const { signUp, login, logout } = require("../controllers/authController");
+const { validateUser } = require("../validators/validators");
 
 const getUrl = require("../middleware/getUrl");
 
 const authRouter = new Router();
 
 authRouter
-  .get("/sign-up", getUrl, (req, res) => {
+  .get("/sign-up", validateUser, getUrl, (req, res) => {
     console.log("curr path", res.currPath);
     res.status(200).render("sign-up", { currPath: res.currPath });
   })
-  .post("/sign-up", signUp);
+  .post("/sign-up", validateUser, signUp);
 
 authRouter
   .get("/login", getUrl, (req, res) => {
