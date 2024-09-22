@@ -24,9 +24,10 @@ class Messages {
     return rows;
   }
   async create(text, id) {
-    await pool.query(
-      `INSERT INTO messages (text, user_id) VALUES ('${text}' , ${id});`
-    );
+    await pool.query(`INSERT INTO messages (text, user_id) VALUES ($1, $2);`, [
+      text,
+      id,
+    ]);
   }
 }
 
@@ -34,7 +35,8 @@ class User {
   async create(username, password) {
     try {
       await pool.query(
-        `INSERT INTO users (username, password) VALUES ('${username}', '${password}');`
+        `INSERT INTO users (username, password) VALUES '$1, $2);`,
+        [username, password]
       );
     } catch (error) {
       console.log(error);
@@ -56,7 +58,9 @@ class User {
 
   async findById(id) {
     try {
-      const { rows } = await pool.query(`SELECT * FROM users WHERE id=${id};`);
+      const { rows } = await pool.query(`SELECT * FROM users WHERE id=$1;`, [
+        id,
+      ]);
 
       return rows[0];
     } catch (error) {
